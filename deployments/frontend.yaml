@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: portfolio-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: frontend
+        image: hzhang20902/portfoliofullstack:complete
+        imagePullPolicy: IfNotPresent
+        ports:
+          - name: http
+            containerPort: 3000
+        resources:
+          limits:
+            cpu: "1.0"
+            memory: "8Gi"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: portfolio-frontend
+spec:
+  type: NodePort
+  selector:
+    app: frontend
+  ports:
+  - name: http
+    port: 3000
+    targetPort: 3000
