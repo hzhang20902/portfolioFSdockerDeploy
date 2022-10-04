@@ -21,7 +21,7 @@ spec:
             containerPort: 3000
         resources:
           limits:
-            cpu: "1.0"
+            cpu: "2.0"
             memory: "8Gi"
 ---
 apiVersion: v1

@@ -23,7 +23,7 @@ spec:
             containerPort: 8080
         resources:
           limits:
-            cpu: "1.0"
+            cpu: "2.0"
             memory: "8Gi"
         env:
         - name: DB_SERVER
